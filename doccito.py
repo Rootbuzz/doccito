@@ -1,10 +1,11 @@
 import sys
 import re
 import markdown
-import argparse
+from optparse import OptionParser
 
 __VERSION__ = "0.1"
 get_version = lambda: __VERSION__
+
 
 def render_content(markup, format="markdown"):
 	if format == 'markdown':
@@ -41,6 +42,7 @@ def build_toc(html):
 
 	return '\n'.join(toc), new_html
 
+
 def create_docs(input, template="./base.html"):
 	html = render_content(input)
 	toc, html = build_toc(html)
@@ -52,26 +54,30 @@ def create_docs(input, template="./base.html"):
 
 	return output
 
+
 if __name__ == "__main__":
-	parser = argparse.ArgumentParser(description='Input a custom html template with --html')
-	parser.add_argument('--stdio', action='store_true', help='specifies stdio')
-	parser.add_argument('--template', help='specifies custom html template')
-	parser.add_argument('--input', help='specifies input file')
-	parser.add_argument('--version', action='version', version='Doccito v' + get_version())
-	args = parser.parse_args()
+	parser = OptionParser(description='Input a custom html template with --html', version='Doccito v' + get_version())
+	parser.add_option('--stdio', action='store_true', help='specifies stdio', dest='stdio')
+	parser.add_option('--template', help='specifies custom html template')
 
-	#ask user for input file (readme.markdown) argument
-
-	if len(sys.argv) == 1:
+	options, args = parser.parse_args()
+	
+	if options.stdio:
+		input = sys.stdin.read()
+		
+	elif len(args):
+		input = open(args[0]).read()
+	
+	else:
 	 	parser.parse_args(['--help'])
-		sys.exit(0)
-
-	input = sys.stdin.read()
-
+	 	sys.exit(0)
+	
 	kwargs = {}
-	if args.template:
-		kwargs['template'] = args.html
-
+	if options.template:
+			kwargs['template'] = options.template
+	
 	output = create_docs(input, **kwargs)
-
 	sys.stdout.write(output)
+
+
+	

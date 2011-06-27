@@ -1,17 +1,126 @@
 <!DOCTYPE HTML>
-	<html>
-	<head>
-	  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-	  <meta http-equiv="X-UA-Compatible" content="chrome=1">
-	  <LINK REL=StyleSheet HREF="stylesheet.css" TYPE="text/css" MEDIA=screen>
-	  <title>README</title>
-	</head>
-	<body>
-	  <div id="sidebar" class="interface">
-			{{ toc }}
-	  </div>
-	  <div class="container">
-			{{ content }}
-	  </div>
-	</body>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="chrome=1">
+	<style type="text/css">
+		body {
+			font-size: 14px;
+			line-height: 22px;
+			font-family: Helvetica Neue, Helvetica, Arial;
+			background: #eee;
+		}
+		div#sidebar {
+			background: #f3f3f3;
+			position: fixed;
+			top: 0; left: 0; bottom: 0;
+			width: 220px;
+			overflow-y: auto;
+			overflow-x: hidden;
+			padding: 15px 0 30px 30px;
+			border-right: 1px solid #fff;
+			box-shadow: 0 0 20px #ccc; -webkit-box-shadow: 0 0 20px #ccc; -moz-box-shadow: 0 0 20px #ccc;
+		}
+		a.h2, a.h2:visited {
+			text-decoration: none;
+			display: block;
+			color: black;
+			font-weight: bold;
+			margin-top: 15px;
+		}
+		a.h2:hover {
+			text-decoration: underline;
+		}
+		a.h3 {
+			display: block;
+			font-size: 11px;
+			line-height: 14px;
+			margin: 5px 0 0 10px;
+			padding-left: 0px;
+			list-style-type: none;
+			font-family: Lucida Grande;
+			text-decoration: none;
+			color: black;
+		}
+		a.h3:hover {
+			text-decoration: underline;
+		}
+		div.container {
+			position: relative;
+			width: 550px;
+			margin: 40px 0 50px 300px;
+		}
+		p, div.container ul {
+			margin: 20px 0;
+			width: 550px;
+		}
+		div.container ul {
+			list-style: circle;
+			font-size: 12px;
+			padding-left: 15px;
+		}
+		a, a:visited {
+			color: #444;
+		}
+		a:active, a:hover {
+			color: #000;
+		}
+		a img {
+			border: 0;
+		}
+		h1, h2, h3, h4, h5, h6 {
+			padding-top: 20px;
+		}
+		h2 {
+			font-size: 20px;
+		}
+		table {
+			margin: 15px 0 0; padding: 0;
+		}
+		tr, td {
+			margin: 0; padding: 0;
+		}
+		td {
+			padding: 0px 15px 5px 0;
+		}
+		code, pre, tt {
+			font-family: Monaco, Consolas, "Lucida Console", monospace;
+			font-size: 12px;
+			line-height: 18px;
+			font-style: normal;
+		}
+		tt {
+			padding: 0px 3px;
+			background: #fff;
+			border: 1px solid #ddd;
+			zoom: 1;
+		}
+		code {
+			border: 1px solid #ccc;
+			background: #fff;
+			padding: 0 3px;
+			zoom: 1;
+		}
+		pre code{
+			border: none;
+			background: transparent;
+			padding: 0;
+		}
+		pre {
+			font-size: 12px;
+			padding: 2px 0 2px 15px;
+			border-left: 4px solid #bbb;
+			margin: 0px 0 30px;
+		}
+	</style>
+	<title>README</title>
+</head>
+<body>
+	<div id="sidebar" class="interface">
+		{{ toc }}
+	</div>
+	<div class="container">
+		{{ content }}
+	</div>
+</body>
 </html>
