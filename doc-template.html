@@ -127,55 +127,13 @@
 	<a href="http://github.com/Rootbuzz/doccito"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 	
 	<div id="sidebar" class="interface">
-		<a href="#Installation" class="h2">Installation</a>
-<a href="#Usage" class="h2">Usage</a>
-<a href="#Command-Line-Arguments" class="h3">Command-Line Arguments</a>
-<a href="#API" class="h2">API</a>
-<a href="#doccito-create_docs" class="h3">doccito.create_docs</a>
+		{{ toc }}
 	</div>
 	<div class="container">
 		<h1 class='title'>Doccito</h1>
 		<div class='description'>Dead Simple Documentation</div>
 		
-		<h2 id="Installation">Installation</h2>
-<p>Install lib with pip:</p>
-<pre><code>pip install doccito
-</code></pre>
-<p><strong>- OR -</strong></p>
-<p>Put the "doccito" <code>directory</code> somewhere in your python path</p>
-<h2 id="Usage">Usage</h2>
-<p>Doccito allows quick and easy documentation for your project by taking a readme.markdown file and constructing an html page with a table of contents corresponding to the document's &lt;h&gt; tags.</p>
-<p>More markdown syntax and examples can be found on the Markdown website, <a href = "http://daringfireball.net/projects/markdown/syntax">here</a>.</p>
-<h3 id="Command-Line-Arguments">Command-Line Arguments</h3>
-<p>Running Doccito on the command-line allows use of either a provided base.html page for your document or a custom one with the [--template] command.</p>
-<p>Running Doccito without any arguments will bring up it's help menu with optional arguments:</p>
-<pre><code>-h, --help     show help message and exit
---stdio        specifies stdio
---template     specifies custom html template
---version      show program's version number and exit
-</code></pre>
-<p>The <code>--stdio</code> is required for the page to not turn to shit.</p>
-<pre><code>cat README.markdown | python doccito.py --stdio &gt; docs.html
-</code></pre>
-<p><strong>- OR -</strong></p>
-<pre><code>python doccito.py --stdio README.markdown &gt; docs.html
-</code></pre>
-<p>will take the README.markdown file and throw it into the default base.html template and create and send it to docs.html.</p>
-<pre><code>cat README.markdown | python doccito.py --stdio --template layout.html &gt; docs.html
-</code></pre>
-<p>will use layout.html as it's template.</p>
-<h2 id="API">API</h2>
-<p>Using Doccito as a library allows use of several functions:</p>
-<h3 id="doccito-create_docs">doccito.create_docs</h3>
-<ul>
-<li><code>input</code> is a string containing the documentation in .markdown</li>
-<li><code>template</code> is the .html template to be used (optional)</li>
-</ul>
-<p>Example usage:</p>
-<pre><code>import doccito
-
-doccito.create_docs(input, template="./base.html")
-</code></pre>
+		{{ content }}
 	</div>
 </body>
 </html>
