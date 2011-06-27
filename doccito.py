@@ -14,7 +14,6 @@ def render_content(markup, format="markdown"):
 slug_finder = re.compile(r"[a-zA-Z0-9_-]+")
 slugs = set()
 def slugify(header_text):
-	# TODO: make text into an id
 	id = "-".join(slug_finder.findall(header_text))
 
 	uniq_id = id
@@ -55,9 +54,13 @@ def create_docs(input, template="./base.html"):
 
 if __name__ == "__main__":
 	parser = argparse.ArgumentParser(description='Input a custom html template with --html')
-	parser.add_argument('--html')
+	parser.add_argument('--stdio', action='store_true', help='specifies stdio')
+	parser.add_argument('--template', help='specifies custom html template')
+	parser.add_argument('--input', help='specifies input file')
 	parser.add_argument('--version', action='version', version='Doccito v' + get_version())
 	args = parser.parse_args()
+
+	#ask user for input file (readme.markdown) argument
 
 	if len(sys.argv) == 1:
 	 	parser.parse_args(['--help'])
@@ -66,7 +69,7 @@ if __name__ == "__main__":
 	input = sys.stdin.read()
 
 	kwargs = {}
-	if args.html:
+	if args.template:
 		kwargs['template'] = args.html
 
 	output = create_docs(input, **kwargs)
