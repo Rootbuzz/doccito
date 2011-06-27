@@ -53,4 +53,6 @@ Using Doccito as a library allows use of several functions:
 
 Example usage:
 
+    import doccito
+    
     doccito.create_docs(input, template="./base.html")
