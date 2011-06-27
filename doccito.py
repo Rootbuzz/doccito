@@ -1,7 +1,10 @@
+from os.path import join, abspath, dirname
 import sys
 import re
 import markdown
 from optparse import OptionParser
+
+here = lambda *args: join(abspath(dirname(__file__)), *args)
 
 __VERSION__ = "0.1"
 get_version = lambda: __VERSION__
@@ -43,7 +46,7 @@ def build_toc(html):
 	return '\n'.join(toc), new_html
 
 
-def create_docs(input, template="./base.html"):
+def create_docs(input, template=here("./base.html")):
 	html = render_content(input)
 	toc, html = build_toc(html)
 
