@@ -26,13 +26,12 @@ Running Doccito without any arguments will bring up it's help menu with optional
     --template     specifies custom html template
     --version      show program's version number and exit
 
-The `--stdio` is required for the page to not turn to shit.
 
 	cat README.markdown | python doccito.py --stdio > docs.html
 
 **- OR -**
 
-	python doccito.py --stdio README.markdown > docs.html
+	python doccito.py README.markdown > docs.html
 
 will take the README.markdown file and throw it into the default base.html template and create and send it to docs.html.
 
@@ -54,5 +53,5 @@ Using Doccito as a library allows use of several functions:
 Example usage:
 
     import doccito
-    
+
     doccito.create_docs(input, template="./base.html")

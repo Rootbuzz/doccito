@@ -22,14 +22,16 @@ setup(
     ],
 
     packages=[
-        'alert',
-        'alert.management',
-        'alert.management.commands',
-        'alert.migrations',
+        'doccito'
     ],
 
     include_package_data=True,
 
+	entry_points={
+		'console_scripts':[
+			'doccito = doccito.__init__'
+		]
+	},
 
     classifiers=[
     	'Development Status :: 5 - Production/Stable',
