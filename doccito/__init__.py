@@ -6,7 +6,7 @@ from optparse import OptionParser
 
 here = lambda *args: join(abspath(dirname(__file__)), *args)
 
-__VERSION__ = "0.1"
+__VERSION__ = "0.1.1"
 get_version = lambda: __VERSION__
 
 
@@ -50,7 +50,10 @@ def create_docs(input, template=here("./base.html")):
 	html = render_content(input)
 	toc, html = build_toc(html)
 
-	template = open(template).read()
+	try:
+		template = template.read()
+	except AttributeError:
+		template = open(template).read()
 
 	output = template.replace("{{ content }}", html)
 	output = output.replace("{{ toc }}", toc)
