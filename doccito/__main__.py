@@ -1,5 +1,6 @@
-from doccito.__init__ import *
 from optparse import OptionParser
+from doccito import get_version
+from doccito.doc_generator import create_docs 
 
 parser = OptionParser(description='Input a custom html template with --html', version='Doccito v' + get_version())
 parser.add_option('--stdio', action='store_true', help='specifies stdio', dest='stdio')

@@ -5,7 +5,7 @@ setup(
     name='doccito',
     version = doccito.get_version(),
 
-    author='rootbuzz',
+    author='Rootbuzz',
     author_email='info@rootbuzz.com',
 
     description=('Send alerts, notifications, and messages based '
@@ -29,7 +29,7 @@ setup(
 
 	entry_points={
 		'console_scripts':[
-			'doccito = doccito.__init__'
+			'doccito = doccito.__main__'
 		]
 	},
 
