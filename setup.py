@@ -29,7 +29,7 @@ setup(
 
 	entry_points={
 		'console_scripts':[
-			'doccito = doccito.__main__'
+			'doccito = doccito.__main__:main'
 		]
 	},
 
